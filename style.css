@@ -1,0 +1,622 @@
+/* ===========================
+   RESET & BASE STYLES
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+  background-color: #f5f8fa;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+}
+
+
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+  flex-wrap: wrap;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; 
+  background-color: #fff;
+  position: fixed;
+  top: 10px; 
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #58a3a7;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: url("pcb2.jpg") no-repeat center center/cover;
+  color: white;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  padding-top: 120px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  color: #f5f8fa;
+  animation: fadeInUp 1s ease;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #58a3a7;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3c7b80;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
+   TYPES OF PCBS SECTION
+=========================== */
+.types-pcbs {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.types-pcb-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.pcb-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.pcb-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.pcb-card {
+  flex: 0 0 auto;
+  min-width: 260px;
+  max-width: 260px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  padding: 20px;
+  scroll-snap-align: start;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.pcb-card:hover {
+  transform: translateY(-10px);
+}
+
+.pcb-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.pcb-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #00796b;
+}
+
+.pcb-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===========================
+   PRODUCTS SECTION
+=========================== */
+.products {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.product-card {
+  width: 220px;
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.enquiry-btn {
+  margin-top: 10px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.enquiry-btn:hover {
+  background-color: #004d40;
+}
+
+.enquiry-btn i {
+  margin-right: 6px;
+}
+
+/* ===========================
+   ABOUT SECTION
+=========================== */
+.about {
+  padding: 60px 20px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.about-images img {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-text {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.8;
+}
+
+.about-stats-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.about-stat {
+  flex: 1 1 180px;
+  max-width: 220px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-stat i {
+  font-size: 26px;
+  color: #4d4dff;
+  margin-bottom: 10px;
+}
+
+/* ===========================
+   GALLERY SECTION
+=========================== */
+.gallery {
+  padding: 60px 20px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.gallery-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 10px 40px;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-scroll img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-btn {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 8px 12px;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.scroll-btn.left { left: 0; }
+.scroll-btn.right { right: 0; }
+
+/* ===========================
+   CONTACT SECTION
+=========================== */
+.contact-section {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.contact-form {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.left-fields,
+.right-message {
+  flex: 1;
+  min-width: 300px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: 'Segoe UI', sans-serif;
+  outline: none;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 230px;
+  resize: none;
+}
+
+.form-submit {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #72aaa7;
+  color: white;
+  font-size: 18px;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5d9492;
+}
+
+/* ===========================
+   FOOTER SECTION
+=========================== */
+.footer {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+}
+
+.footer-column h4 {
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 6px 0;
+}
+
+.footer-column a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #007bff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #848080;
+  border-top: 1px solid #f4efef;
+  margin-top: 20px;
+}
+
+/* =========================== MEDIA QUERIES =========================== */
+
+@media (max-width: 768px) {
+  /* Top Bar */
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .social-icons {
+    margin-bottom: 10px;
+  }
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+
+
+  /* Products Section */
+.product-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* About Section */
+.about-content {
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-images {
+  margin-bottom: 20px;
+}
+
+
+/* Contact Section */
+.contact-form {
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-fields {
+  margin-bottom: 20px;
+}
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for smaller screens */
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+  }
+}
